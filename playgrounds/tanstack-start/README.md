@@ -100,6 +100,9 @@ If you find oRPC valuable and would like to support its development, you can do 
    <td align="center"><a href="https://github.com/piscis?ref=orpc" target="_blank" rel="noopener" title="Alex"><img src="https://avatars.githubusercontent.com/u/326163?u=b245f368bd940cf51d08c0b6bf55f8257f359437&amp;v=4" width="104" alt="Alex"/><br />Alex</a></td>
    <td align="center"><a href="https://github.com/nattstack?ref=orpc" target="_blank" rel="noopener" title="nattstack"><img src="https://avatars.githubusercontent.com/u/31426677?u=fa9dbb8b3e66eb0ea3c88db5dc07f31c8c5418fe&amp;v=4" width="104" alt="nattstack"/><br />nattstack</a></td>
   </tr>
+  <tr>
+   <td align="center"><a href="https://github.com/finom?ref=orpc" target="_blank" rel="noopener" title="Andrey Gubanov"><img src="https://avatars.githubusercontent.com/u/1082083?u=29e91400dbd4a9c217048a8f59562c4f740498e6&amp;v=4" width="104" alt="Andrey Gubanov"/><br />Andrey Gubanov</a></td>
+  </tr>
 </table>
 
 ### Past Sponsors
