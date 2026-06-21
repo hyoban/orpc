@@ -11,23 +11,23 @@ This plugin improves developer experience, but it adds runtime overhead. For per
 ::: code-group
 
 ```sh [npm]
-npm install @orpc/json-schema@latest
+npm install @orpc/json-schema@beta
 ```
 
 ```sh [yarn]
-yarn add @orpc/json-schema@latest
+yarn add @orpc/json-schema@beta
 ```
 
 ```sh [pnpm]
-pnpm add @orpc/json-schema@latest
+pnpm add @orpc/json-schema@beta
 ```
 
 ```sh [bun]
-bun add @orpc/json-schema@latest
+bun add @orpc/json-schema@beta
 ```
 
 ```sh [deno]
-deno add npm:@orpc/json-schema@latest
+deno add npm:@orpc/json-schema@beta
 ```
 
 :::

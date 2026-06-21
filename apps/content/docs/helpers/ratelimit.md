@@ -7,23 +7,23 @@ Rate Limit helpers provide a unified set of adapters, middleware, and handler pl
 ::: code-group
 
 ```sh [npm]
-npm install @orpc/ratelimit@latest
+npm install @orpc/ratelimit@beta
 ```
 
 ```sh [yarn]
-yarn add @orpc/ratelimit@latest
+yarn add @orpc/ratelimit@beta
 ```
 
 ```sh [pnpm]
-pnpm add @orpc/ratelimit@latest
+pnpm add @orpc/ratelimit@beta
 ```
 
 ```sh [bun]
-bun add @orpc/ratelimit@latest
+bun add @orpc/ratelimit@beta
 ```
 
 ```sh [deno]
-deno add npm:@orpc/ratelimit@latest
+deno add npm:@orpc/ratelimit@beta
 ```
 
 :::

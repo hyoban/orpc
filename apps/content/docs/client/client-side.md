@@ -7,23 +7,23 @@ Client-side clients call procedures remotely, in a different process or on a dif
 ::: code-group
 
 ```sh [npm]
-npm install @orpc/client@latest
+npm install @orpc/client@beta
 ```
 
 ```sh [yarn]
-yarn add @orpc/client@latest
+yarn add @orpc/client@beta
 ```
 
 ```sh [pnpm]
-pnpm add @orpc/client@latest
+pnpm add @orpc/client@beta
 ```
 
 ```sh [bun]
-bun add @orpc/client@latest
+bun add @orpc/client@beta
 ```
 
 ```sh [deno]
-deno add npm:@orpc/client@latest
+deno add npm:@orpc/client@beta
 ```
 
 :::

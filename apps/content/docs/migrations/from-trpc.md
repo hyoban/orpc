@@ -34,27 +34,27 @@ Remove the tRPC packages and install the oRPC replacements:
 
 ```sh [npm]
 npm uninstall @trpc/server @trpc/client @trpc/tanstack-react-query
-npm install @orpc/server@latest @orpc/client@latest @orpc/tanstack-query@latest
+npm install @orpc/server@beta @orpc/client@beta @orpc/tanstack-query@beta
 ```
 
 ```sh [yarn]
 yarn remove @trpc/server @trpc/client @trpc/tanstack-react-query
-yarn add @orpc/server@latest @orpc/client@latest @orpc/tanstack-query@latest
+yarn add @orpc/server@beta @orpc/client@beta @orpc/tanstack-query@beta
 ```
 
 ```sh [pnpm]
 pnpm remove @trpc/server @trpc/client @trpc/tanstack-react-query
-pnpm add @orpc/server@latest @orpc/client@latest @orpc/tanstack-query@latest
+pnpm add @orpc/server@beta @orpc/client@beta @orpc/tanstack-query@beta
 ```
 
 ```sh [bun]
 bun remove @trpc/server @trpc/client @trpc/tanstack-react-query
-bun add @orpc/server@latest @orpc/client@latest @orpc/tanstack-query@latest
+bun add @orpc/server@beta @orpc/client@beta @orpc/tanstack-query@beta
 ```
 
 ```sh [deno]
 deno remove npm:@trpc/server npm:@trpc/client npm:@trpc/tanstack-react-query
-deno add npm:@orpc/server@latest npm:@orpc/client@latest npm:@orpc/tanstack-query@latest
+deno add npm:@orpc/server@beta npm:@orpc/client@beta npm:@orpc/tanstack-query@beta
 ```
 
 :::
