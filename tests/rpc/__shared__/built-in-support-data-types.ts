@@ -76,8 +76,8 @@ export const builtInRPCSupportDataTypes: { name: string, value: unknown, expecte
   },
   {
     name: 'URL',
-    value: new URL('https://unnoq.com'),
-    expected: new URL('https://unnoq.com'),
+    value: new URL('https://dinwwwh.com'),
+    expected: new URL('https://dinwwwh.com'),
   },
   {
     name: 'object',

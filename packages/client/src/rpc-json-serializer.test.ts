@@ -32,13 +32,13 @@ class Person2 {
 const customSupportedDataTypes: { name: string, value: unknown, expected: unknown }[] = [
   {
     name: 'person - 1',
-    value: new Person('unnoq', new Date('2023-01-01')),
-    expected: new Person('unnoq', new Date('2023-01-01')),
+    value: new Person('dinwwwh', new Date('2023-01-01')),
+    expected: new Person('dinwwwh', new Date('2023-01-01')),
   },
   {
     name: 'person - 2',
-    value: new Person2('unnoq - 2', [{ nested: new Date('2023-01-02') }, /uic/gi]),
-    expected: new Person2('unnoq - 2', [{ nested: new Date('2023-01-02') }, /uic/gi]),
+    value: new Person2('dinwwwh - 2', [{ nested: new Date('2023-01-02') }, /uic/gi]),
+    expected: new Person2('dinwwwh - 2', [{ nested: new Date('2023-01-02') }, /uic/gi]),
   },
   {
     name: 'should not resolve toJSON',
@@ -106,7 +106,7 @@ describe.each([
     assert({
       'date': new Date('2023-01-01'),
       'regexp': /uic/gi,
-      'url': new URL('https://unnoq.com'),
+      'url': new URL('https://dinwwwh.com'),
       '!@#$%^^&()[]>?<~_<:"~+!_': value,
       'list': [value],
       'map': new Map([[value, value]]),
@@ -117,7 +117,7 @@ describe.each([
     }, {
       'date': new Date('2023-01-01'),
       'regexp': /uic/gi,
-      'url': new URL('https://unnoq.com'),
+      'url': new URL('https://dinwwwh.com'),
       '!@#$%^^&()[]>?<~_<:"~+!_': expected,
       'list': [expected],
       'map': new Map([[expected, expected]]),

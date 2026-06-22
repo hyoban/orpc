@@ -26,13 +26,13 @@ describe('openAPIMatcher', () => {
         params: undefined,
       })
 
-      await expect(matcher.match('GET', '/nested/%65cho/unnoq%2F', undefined)).resolves.toEqual({
+      await expect(matcher.match('GET', '/nested/%65cho/dinwwwh%2F', undefined)).resolves.toEqual({
         path: ['nested', 'echo'],
         procedure: echo,
-        params: { value: 'unnoq/' },
+        params: { value: 'dinwwwh/' },
       })
 
-      await expect(matcher.match('POST', '/nested/echo/unnoq%2F', undefined)).resolves.toBeUndefined()
+      await expect(matcher.match('POST', '/nested/echo/dinwwwh%2F', undefined)).resolves.toBeUndefined()
     })
 
     it('normalizes trailing slashes in request paths and OpenAPI route definitions', async () => {

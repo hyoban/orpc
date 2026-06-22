@@ -46,7 +46,7 @@ describe('openAPIJsonSerializer', () => {
     })
 
     it('serializes URL to string', () => {
-      expect(serializer.serialize(new URL('https://unnoq.com')).json).toBe('https://unnoq.com/')
+      expect(serializer.serialize(new URL('https://dinwwwh.com')).json).toBe('https://dinwwwh.com/')
     })
 
     it('serializes RegExp to string', () => {
@@ -158,8 +158,8 @@ describe('openAPIJsonSerializer', () => {
         },
       })
 
-      expect(custom.serialize(new Person('unnoq', new Date('2023-01-01'))).json).toEqual({
-        name: 'unnoq',
+      expect(custom.serialize(new Person('dinwwwh', new Date('2023-01-01'))).json).toEqual({
+        name: 'dinwwwh',
         date: '2023-01-01T00:00:00.000Z',
       })
     })
