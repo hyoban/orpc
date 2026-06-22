@@ -12,6 +12,9 @@ updates:
           - eslint
           - '@antfu/eslint-config'
           - 'eslint-plugin-*'
+      standardserver:
+        patterns:
+          - '@standardserver/*'
       dev-dependencies-minor-patch:
         dependency-type: development
         exclude-patterns:
