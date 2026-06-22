@@ -42,6 +42,7 @@ export const createHonoFetchBatchClientServerTest: CreateBatchClientServerTest =
 
   const link = new RPCLink({
     url: '/rpc',
+    method: 'GET', // hono-fetch use GET while node-http use POST for better coverage
     origin: `http://localhost:${addressInfo.port}`,
     serializer,
     fetch: fetchSpy,

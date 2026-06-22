@@ -31,6 +31,7 @@ export const createNodeHttpClientServerTest: CreateClientServerTest = (
 
   const link = new RPCLink({
     url: '/rpc',
+    method: 'GET', // node-http use GET while hono-fetch use POST for better coverage
     origin: `http://localhost:${addressInfo.port}`,
     serializer,
     fetch(url, init) {
