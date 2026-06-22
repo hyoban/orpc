@@ -126,6 +126,20 @@ describe('openAPIMatcher', () => {
       expect(filter.mock.calls).toContainEqual([ping, ['ping']])
       expect(filter.mock.calls).toContainEqual([secret, ['internal', 'secret']])
     })
+
+    it('supports both normal and catch-all params at the same time', async () => {
+      const procedure = os
+        .meta(openapi({ method: 'GET', path: '/{name}/{+rest}' }))
+        .handler(() => 'ok')
+
+      const matcher = new OpenAPIMatcher({ procedure })
+
+      await expect(matcher.match('GET', '/a/b/c%2Fd/', undefined)).resolves.toEqual({
+        path: ['procedure'],
+        procedure,
+        params: { name: 'a', rest: 'b/c/d' },
+      })
+    })
   })
 
   describe('runtime prefix stripping', () => {
