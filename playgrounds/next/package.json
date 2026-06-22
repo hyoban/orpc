@@ -27,16 +27,16 @@
     "@orpc/tanstack-query": "latest",
     "@orpc/zod": "latest",
     "@tanstack/react-query": "^5.101.0",
-    "@types/node": "^25",
+    "@types/node": "^26.0.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vercel/otel": "^2.1.3",
     "next": "16.2.9",
-    "react": "19.2.7",
+    "react": "^19.2.7",
     "react-dom": "19.2.7",
     "server-only": "^0.0.1",
     "ts-pattern": "^5.9.0",
-    "typescript": "^6",
+    "typescript": "^6.0.3",
     "zod": "^4.4.3"
   }
 }
