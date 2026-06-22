@@ -45,7 +45,9 @@ jobs:
           UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
 
       - uses: codecov/codecov-action@v7
-        if: matrix.node-version == 26
+        # Upstash tests are skipped in node 26 - so we prefer node 24
+        # TODO: use node 26
+        if: matrix.node-version == 24
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 

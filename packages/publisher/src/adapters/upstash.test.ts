@@ -14,7 +14,11 @@ const UPSTASH_REDIS_REST_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN
  */
 describe.concurrent(
   'upstashPublisher',
-  { skip: !UPSTASH_REDIS_REST_URL || !UPSTASH_REDIS_REST_TOKEN, timeout: 20000 },
+  {
+    // TODO: Upstash is not compatible with Node 26 yet — temporarily disable these tests and revisit in the future.
+    skip: !UPSTASH_REDIS_REST_URL || !UPSTASH_REDIS_REST_TOKEN || process.versions.node.startsWith('26.'),
+    timeout: 20000,
+  },
   () => {
     let redis: Redis
     const createdPublishers: UpstashPublisher<Record<string, object>>[] = []
