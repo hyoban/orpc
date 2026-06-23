@@ -17,9 +17,7 @@ import { getOpenAPIMeta } from '../../meta'
 import { OpenAPISerializer } from '../../openapi-serializer'
 import { OpenAPIMatcher } from './openapi-matcher'
 
-export class OpenAPIHandlerCodecError extends TypeError {}
-
-export interface OpenAPIHandlerCodecOptions<_T extends Context> extends OpenAPIMatcherOptions {
+export interface OpenAPIHandlerCodecCoreOptions<_T extends Context> {
   /**
    * Override the default OpenAPI serializer.
    */
@@ -44,14 +42,12 @@ export interface OpenAPIHandlerCodecOptions<_T extends Context> extends OpenAPIM
   customErrorResponseBodyEncoder?: (error: AnyORPCError) => unknown
 }
 
-export class OpenAPIHandlerCodec<T extends Context> implements StandardHandlerCodec<T> {
-  private readonly matcher: OpenAPIMatcher
+export class OpenAPIHandlerCodecCore<T extends Context> {
   private readonly serializer: Pick<OpenAPISerializer, keyof OpenAPISerializer>
   private readonly errorStatusMap: Exclude<OpenAPIHandlerCodecOptions<T>['errorStatusMap'], undefined>
   private readonly customErrorResponseBodySerializer: OpenAPIHandlerCodecOptions<T>['customErrorResponseBodyEncoder']
 
-  constructor(router: AnyRouter, options: OpenAPIHandlerCodecOptions<T> = {}) {
-    this.matcher = new OpenAPIMatcher(router, options)
+  constructor(options: OpenAPIHandlerCodecCoreOptions<T> = {}) {
     this.serializer = options.serializer ?? new OpenAPISerializer()
     this.errorStatusMap = options.errorStatusMap ?? COMMON_ERROR_STATUS_MAP
     this.customErrorResponseBodySerializer = options.customErrorResponseBodyEncoder
@@ -97,24 +93,8 @@ export class OpenAPIHandlerCodec<T extends Context> implements StandardHandlerCo
     }
   }
 
-  async resolveProcedure(request: StandardLazyRequest, options: StandardHandlerHandleOptions<T>): Promise<StandardHandlerCodecResolvedProcedure | undefined> {
-    const [pathname] = parseStandardUrl(request.url)
-
-    const matched = await this.matcher.match(request.method, pathname, options.prefix)
-
-    if (!matched) {
-      return undefined
-    }
-
-    return {
-      procedure: matched.procedure,
-      path: matched.path,
-      decodeInput: () => this.decodeInput(matched, request),
-    }
-  }
-
   /**
-   * @throws {Error} If `outputStructure` is "detailed" and the output doesn't match the expected structure.
+   * @throws {TypeError} If `outputStructure` is "detailed" and the output doesn't match the expected structure.
    */
   encodeOutput(output: unknown, procedure: AnyProcedure, path: string[], _options: StandardHandlerHandleOptions<T>): Promisable<StandardResponse> {
     const meta = getOpenAPIMeta(procedure)
@@ -130,7 +110,7 @@ export class OpenAPIHandlerCodec<T extends Context> implements StandardHandlerCo
     }
 
     if (!isValidDetailedOutput(output)) {
-      throw new OpenAPIHandlerCodecError(`
+      throw new TypeError(`
         Invalid "detailed" output structure returned by procedure (${path.join('.')}):
         • Expected an object with optional properties:
           - status (number 200-399)
@@ -258,6 +238,34 @@ export class OpenAPIHandlerCodec<T extends Context> implements StandardHandlerCo
     })
 
     return parsed
+  }
+}
+
+export interface OpenAPIHandlerCodecOptions<T extends Context>
+  extends OpenAPIHandlerCodecCoreOptions<T>, OpenAPIMatcherOptions {}
+
+export class OpenAPIHandlerCodec<T extends Context> extends OpenAPIHandlerCodecCore<T> implements StandardHandlerCodec<T> {
+  private readonly matcher: OpenAPIMatcher
+
+  constructor(router: AnyRouter, options: OpenAPIHandlerCodecOptions<T> = {}) {
+    super(options)
+    this.matcher = new OpenAPIMatcher(router, options)
+  }
+
+  async resolveProcedure(request: StandardLazyRequest, options: StandardHandlerHandleOptions<T>): Promise<StandardHandlerCodecResolvedProcedure | undefined> {
+    const [pathname] = parseStandardUrl(request.url)
+
+    const matched = await this.matcher.match(request.method, pathname, options.prefix)
+
+    if (!matched) {
+      return undefined
+    }
+
+    return {
+      procedure: matched.procedure,
+      path: matched.path,
+      decodeInput: () => this.decodeInput(matched, request),
+    }
   }
 }
 
