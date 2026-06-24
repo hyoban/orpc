@@ -18,6 +18,26 @@ export * from './router-client'
 export * from './router-hidden'
 export * from './router-utils'
 
+export type {
+  AnyORPCError,
+  AnyORPCErrorJSON,
+  Client,
+  ClientContext,
+  ClientOptions,
+  ClientRest,
+  FriendlyClientOptions,
+  ORPCErrorCode,
+  ORPCErrorJSON,
+  ORPCErrorOptions,
+  RPCJsonSerialization,
+  RPCJsonSerializationMeta,
+  RPCJsonSerializerHandler,
+  RPCJsonSerializerOptions,
+  RPCSerializerOptions,
+  RPCSerializerSerializeOptions,
+  SafeResult,
+} from '@orpc/client'
+
 export {
   cloneORPCError,
   COMMON_ERROR_STATUS_MAP,
@@ -29,19 +49,7 @@ export {
   safe,
   toORPCError,
 } from '@orpc/client'
-export type {
-  AnyORPCError,
-  AnyORPCErrorJSON,
-  ORPCErrorCode,
-  ORPCErrorJSON,
-  ORPCErrorOptions,
-  RPCJsonSerialization,
-  RPCJsonSerializationMeta,
-  RPCJsonSerializerHandler,
-  RPCJsonSerializerOptions,
-  RPCSerializerOptions,
-  RPCSerializerSerializeOptions,
-} from '@orpc/client'
+
 export type {
   AnyMetaPlugin,
   AnySchema,
@@ -59,8 +67,24 @@ export type {
   RouterContract,
   Schema,
 } from '@orpc/contract'
-export { defineMeta, eventIterator, reconcileORPCError, type, ValidationError } from '@orpc/contract'
-export type { PromiseWithError, Registry, ThrowableError } from '@orpc/shared'
+
+export {
+  defineMeta,
+  eventIterator,
+  reconcileORPCError,
+  type,
+  ValidationError,
+} from '@orpc/contract'
+
+export type {
+  AsyncCleanupFn,
+  AsyncIteratorClassNextFn,
+  MaybeOptionalOptions,
+  PromiseWithError,
+  Registry,
+  ThrowableError,
+} from '@orpc/shared'
+
 export {
   AsyncIteratorClass,
   asyncIteratorToStream as eventIteratorToStream,
@@ -71,5 +95,14 @@ export {
   onSuccess,
   streamToAsyncIteratorClass as streamToEventIterator,
 } from '@orpc/shared'
-export type { AsyncCleanupFn, AsyncIteratorClassNextFn } from '@orpc/shared'
-export { ErrorEvent, getEventMeta, unwrapEvent, withEventMeta } from '@standardserver/core'
+
+export type {
+  EventMeta,
+} from '@standardserver/core'
+
+export {
+  ErrorEvent,
+  getEventMeta,
+  unwrapEvent,
+  withEventMeta,
+} from '@standardserver/core'

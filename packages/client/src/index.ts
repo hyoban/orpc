@@ -12,7 +12,15 @@ export * from './rpc-serializer'
 export * from './types'
 export * from './utils'
 
-export type { PromiseWithError, Registry, ThrowableError } from '@orpc/shared'
+export type {
+  AsyncCleanupFn,
+  AsyncIteratorClassNextFn,
+  MaybeOptionalOptions,
+  PromiseWithError,
+  Registry,
+  ThrowableError,
+} from '@orpc/shared'
+
 export {
   AsyncIteratorClass,
   asyncIteratorToStream as eventIteratorToStream,
@@ -23,8 +31,17 @@ export {
   onSuccess,
   streamToAsyncIteratorClass as streamToEventIterator,
 } from '@orpc/shared'
-export type { AsyncCleanupFn, AsyncIteratorClassNextFn } from '@orpc/shared'
-export { ErrorEvent, getEventMeta, unwrapEvent, withEventMeta } from '@standardserver/core'
+
+export type {
+  EventMeta,
+} from '@standardserver/core'
+
+export {
+  ErrorEvent,
+  getEventMeta,
+  unwrapEvent,
+  withEventMeta,
+} from '@standardserver/core'
 
 /**
  * @deprecated Use `isInferableError` instead.

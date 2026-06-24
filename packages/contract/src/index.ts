@@ -15,4 +15,16 @@ export * from './router-utils'
 export * from './schema'
 export * from './schema-utils'
 
-export type { PromiseWithError, Registry, ThrowableError } from '@orpc/shared'
+export type {
+  Client,
+  ClientContext,
+  ClientOptions,
+  ClientRest,
+  FriendlyClientOptions,
+} from '@orpc/client'
+
+export type {
+  PromiseWithError,
+  Registry,
+  ThrowableError,
+} from '@orpc/shared'

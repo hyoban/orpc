@@ -8,4 +8,10 @@ export * from './openapi-serializer'
 export * from './types'
 export * from './utils'
 
-export { COMMON_ERROR_STATUS_MAP } from '@orpc/client'
+export {
+  COMMON_ERROR_STATUS_MAP,
+} from '@orpc/client'
+
+export type {
+  StandardBodyHint,
+} from '@standardserver/core'
