@@ -131,13 +131,13 @@ describe('rpcLink', () => {
 
     const fetchInterceptor = vi.fn(({ next }) => next())
 
-    const toFetchBodyOptions = { eventStream: { keepAlive: { enabled: true, comment: 'ok' } } }
+    const toFetchRequestOptions = { eventStream: { keepAlive: { enabled: true, comment: 'ok' } } }
 
     const orpc = createORPCClient(new RPCLink({
       fetch,
       origin: 'http://api.example.com',
       fetchInterceptors: [fetchInterceptor],
-      toFetchBody: toFetchBodyOptions,
+      toFetchRequest: toFetchRequestOptions,
     })) as any
 
     await expect(orpc.ping('input')).resolves.toEqual('pong')
@@ -154,7 +154,7 @@ describe('rpcLink', () => {
     }))
 
     expect(fetch).toHaveBeenCalledOnce()
-    expect(toFetchBody).toHaveBeenCalledWith({ json: 'input' }, {}, toFetchBodyOptions)
+    expect(toFetchBody).toHaveBeenCalledWith({ json: 'input' }, {}, toFetchRequestOptions)
   })
 
   it('supports request without origin', async () => {

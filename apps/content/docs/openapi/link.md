@@ -262,7 +262,7 @@ Configure how [event iterators](/docs/event-iterator) are streamed to the server
 
 ```ts
 const link = new OpenAPILink(contract, {
-  toFetchBody: {
+  toFetchRequest: {
     eventStream: {
       initialComment: {
         /**

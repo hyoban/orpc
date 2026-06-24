@@ -25,9 +25,9 @@ export interface FetchLinkTransportOptions<T extends ClientContext> {
   origin?: Value<Promisable<`https://${string}` | `http://${string}` | ({} & string) | undefined>, [options: ClientOptions<T>, path: string[]]>
 
   /**
-   * Options for how to convert the Standard Request body to a Fetch body, like event iterator options, etc.
+   * Options for how to convert the Standard Request to a Fetch Request, like event iterator options, etc.
    */
-  toFetchBody?: ToFetchBodyOptions | undefined
+  toFetchRequest?: undefined | ToFetchBodyOptions
 
   /**
    * Override the default fetch implementation.
@@ -47,7 +47,7 @@ export interface FetchLinkTransportOptions<T extends ClientContext> {
 export class FetchLinkTransport<T extends ClientContext> implements StandardLinkTransport<T> {
   private readonly origin: FetchLinkTransportOptions<T>['origin']
   private readonly fetch: Exclude<FetchLinkTransportOptions<T>['fetch'], undefined>
-  private readonly toFetchBodyOptions: FetchLinkTransportOptions<T>['toFetchBody']
+  private readonly toFetchRequestOptions: FetchLinkTransportOptions<T>['toFetchRequest']
   private readonly fetchInterceptors: FetchLinkTransportOptions<T>['fetchInterceptors']
 
   constructor(options: FetchLinkTransportOptions<T>) {
@@ -55,7 +55,7 @@ export class FetchLinkTransport<T extends ClientContext> implements StandardLink
 
     this.origin = options.origin
     this.fetch = options.fetch ?? globalThis.fetch.bind(globalThis)
-    this.toFetchBodyOptions = options.toFetchBody
+    this.toFetchRequestOptions = options.toFetchRequest
     this.fetchInterceptors = options.fetchInterceptors
   }
 
@@ -66,7 +66,7 @@ export class FetchLinkTransport<T extends ClientContext> implements StandardLink
     }
 
     const url = `${origin ?? ''}${standardRequest.url}`
-    const [body, standardHeaders] = toFetchBody(standardRequest.body, standardRequest.headers, this.toFetchBodyOptions)
+    const [body, standardHeaders] = toFetchBody(standardRequest.body, standardRequest.headers, this.toFetchRequestOptions)
 
     const init: RequestInit = {
       body,

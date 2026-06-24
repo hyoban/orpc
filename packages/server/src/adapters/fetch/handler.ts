@@ -18,9 +18,9 @@ export type FetchHandlerFetchInterceptor<T extends Context> = Interceptor<FetchH
 
 export interface FetchHandlerOptions<T extends Context> {
   /**
-   * Custom options for `toFetchResponse`, used to map a `Standard Response` to a `Fetch Response`.
+   * Options for how to convert the Fetch Response to a Standard Response, like event iterator options, etc.
    */
-  toFetchResponse?: ToFetchResponseOptions
+  toFetchResponse?: undefined | ToFetchResponseOptions
 
   /**
    * Interceptors that run before the mapping between the Standard API and Fetch API,
