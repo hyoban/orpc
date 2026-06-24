@@ -6,20 +6,8 @@ import {
   deduplicateJsonSchemas,
   extractJsonObjectSchemaEntries,
   flattenJsonUnionSchema,
-  isJsonPrimitiveSchema,
   matchArrayableJsonSchema,
 } from './composition-utils'
-
-it('isJsonPrimitiveSchema', () => {
-  expect(isJsonPrimitiveSchema({ type: 'string' })).toBe(true)
-  expect(isJsonPrimitiveSchema({ const: 'fixed' })).toBe(true)
-  expect(isJsonPrimitiveSchema({ enum: ['a', 'b'] })).toBe(true)
-  expect(isJsonPrimitiveSchema({ description: 'primitive union', anyOf: [{ type: 'number' }, { oneOf: [{ type: 'boolean' }, { const: 'x' }] }] })).toBe(true)
-
-  expect(isJsonPrimitiveSchema(true)).toBe(false)
-  expect(isJsonPrimitiveSchema({ type: 'object', properties: { a: { type: 'string' } } })).toBe(false)
-  expect(isJsonPrimitiveSchema({ anyOf: [{ type: 'string' }, { type: 'array', items: { type: 'string' } }] })).toBe(false)
-})
 
 describe('extractJsonObjectSchemaEntries', () => {
   it('returns undefined for non object-able schemas', () => {

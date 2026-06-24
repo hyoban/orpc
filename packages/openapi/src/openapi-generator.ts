@@ -332,10 +332,10 @@ export class OpenAPIGenerator {
           delete parameter.schema
         }
         else if (style === undefined) {
-          if (!isJsonPrimitiveSchema(schema)) {
+          if (flattenJsonUnionSchema(schema).some(s => !isJsonPrimitiveSchema(s))) {
             const arrayable = matchArrayableJsonSchema(schema)
 
-            if (!arrayable || !isJsonPrimitiveSchema(arrayable[0])) {
+            if (!arrayable || flattenJsonUnionSchema(arrayable[0]).some(s => !isJsonPrimitiveSchema(s))) {
               parameter.style = 'deepObject'
               parameter.explode = true
             }

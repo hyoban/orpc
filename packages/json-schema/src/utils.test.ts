@@ -1,5 +1,18 @@
 import type { JsonSchema } from './types'
-import { ensureJsonSchemaObject, isJsonArraySchema, isJsonFileSchema, isJsonObjectSchema, isUnconstrainedSchema } from './utils'
+import { ensureJsonSchemaObject, isJsonArraySchema, isJsonFileSchema, isJsonObjectSchema, isJsonPrimitiveSchema, isUnconstrainedSchema } from './utils'
+
+it('isJsonPrimitiveSchema', () => {
+  expect(isJsonPrimitiveSchema({ type: 'string' })).toBe(true)
+  expect(isJsonPrimitiveSchema({ const: 'fixed' })).toBe(true)
+  expect(isJsonPrimitiveSchema({ enum: ['a', 'b'] })).toBe(true)
+
+  expect(isJsonPrimitiveSchema(true)).toBe(false)
+  expect(isJsonPrimitiveSchema({ type: 'object', properties: { a: { type: 'string' } } })).toBe(false)
+  expect(isJsonPrimitiveSchema({ anyOf: [{ type: 'string' }, { type: 'array', items: { type: 'string' } }] })).toBe(false)
+
+  // does not support union - need manually flattenJsonUnionSchema.every
+  expect(isJsonPrimitiveSchema({ description: 'primitive union', anyOf: [{ type: 'number' }, { oneOf: [{ type: 'boolean' }, { const: 'x' }] }] })).toBe(false)
+})
 
 it('isJsonFileSchema', () => {
   expect(isJsonFileSchema({ type: 'string', contentMediaType: 'image/png' })).toBe(true)

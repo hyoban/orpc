@@ -4,7 +4,27 @@
  */
 
 import type { JsonSchema } from './types'
-import { JSON_SCHEMA_LOGIC_KEYWORDS } from './constants'
+import { JSON_SCHEMA_LOGIC_KEYWORDS, JSON_SCHEMA_PRIMITIVE_TYPES } from './constants'
+
+export function isJsonPrimitiveSchema(schema: JsonSchema): schema is JsonSchema & object {
+  if (typeof schema === 'boolean') {
+    return false
+  }
+
+  if (typeof schema.type === 'string' && JSON_SCHEMA_PRIMITIVE_TYPES.has(schema.type)) {
+    return true
+  }
+
+  if (schema.const !== undefined) {
+    return true
+  }
+
+  if (schema.enum !== undefined) {
+    return true
+  }
+
+  return false
+}
 
 export type JsonFileSchema = JsonSchema & object & { type: 'string', contentMediaType?: string }
 

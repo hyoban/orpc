@@ -6,7 +6,7 @@
 import type { JsonSchema } from './types'
 import type { JsonArraySchema, JsonObjectSchema } from './utils'
 import { get, isDeepEqual, omit, toArray } from '@orpc/shared'
-import { JSON_SCHEMA_LOGIC_KEYWORDS, JSON_SCHEMA_PRIMITIVE_TYPES } from './constants'
+import { JSON_SCHEMA_LOGIC_KEYWORDS } from './constants'
 import { decodeJsonPointerSegment, encodeJsonPointerSegment, hoistRecursiveRefToDef, mapJsonSchemaRefs, resolveJsonSchemaRootLocalRef } from './ref-utils'
 import { ensureJsonSchemaObject, isJsonArraySchema } from './utils'
 
@@ -102,31 +102,6 @@ export function combineJsonSchemasWithComposition(
   }
 
   return result
-}
-
-/**
- * Returns true when every branch in the schema describes a primitive value.
- */
-export function isJsonPrimitiveSchema(schema: JsonSchema): boolean {
-  return flattenJsonUnionSchema(schema).every((s) => {
-    if (typeof s === 'boolean') {
-      return false
-    }
-
-    if (typeof s.type === 'string' && JSON_SCHEMA_PRIMITIVE_TYPES.has(s.type)) {
-      return true
-    }
-
-    if (s.const !== undefined) {
-      return true
-    }
-
-    if (s.enum !== undefined) {
-      return true
-    }
-
-    return false
-  })
 }
 
 export type JsonObjectSchemaEntry = [name: string, schema: JsonSchema, optional: boolean]
