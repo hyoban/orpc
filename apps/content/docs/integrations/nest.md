@@ -7,23 +7,23 @@ oRPC provides built-in support for NestJS applications through the `@orpc/nest` 
 ::: code-group
 
 ```sh [npm]
-npm install @orpc/nest@latest
+npm install @orpc/nest@beta
 ```
 
 ```sh [yarn]
-yarn add @orpc/nest@latest
+yarn add @orpc/nest@beta
 ```
 
 ```sh [pnpm]
-pnpm add @orpc/nest@latest
+pnpm add @orpc/nest@beta
 ```
 
 ```sh [bun]
-bun add @orpc/nest@latest
+bun add @orpc/nest@beta
 ```
 
 ```sh [deno]
-deno add npm:@orpc/nest@latest
+deno add npm:@orpc/nest@beta
 ```
 
 :::
