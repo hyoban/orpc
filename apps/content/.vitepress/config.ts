@@ -160,6 +160,7 @@ export default withMermaid(defineConfig({
             { text: 'Request Validation', link: '/docs/plugins/request-validation' },
             { text: 'Response Headers', link: '/docs/plugins/response-headers' },
             { text: 'Response Validation', link: '/docs/plugins/response-validation' },
+            { text: 'Rethrow', link: '/docs/plugins/rethrow' },
             { text: 'Retry After', link: '/docs/plugins/retry-after' },
             { text: 'Retry', link: '/docs/plugins/retry' },
             { text: 'Smart Coercion', link: '/docs/plugins/smart-coercion' },

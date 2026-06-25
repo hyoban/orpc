@@ -5,5 +5,6 @@ it('exports plugins', async () => {
     RequestHeadersHandlerPlugin: expect.any(Function),
     ResponseHeadersHandlerPlugin: expect.any(Function),
     CSRFGuardHandlerPlugin: expect.any(Function),
+    RethrowHandlerPlugin: expect.any(Function),
   })
 })
