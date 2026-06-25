@@ -37,17 +37,18 @@ You can read the documentation [here](https://orpc.dev).
 - [@orpc/valibot](https://www.npmjs.com/package/@orpc/valibot): Integrate with [Valibot](https://valibot.dev/).
 - [@orpc/arktype](https://www.npmjs.com/package/@orpc/arktype): Integrate with [ArkType](https://arktype.io/).
 
-**Framework & ecosystem integrations**
-
-- [@orpc/next](https://www.npmjs.com/package/@orpc/react): Use oRPC with [Next.js Server Functions](https://nextjs.org/docs/app/getting-started/mutating-data).
-- [@orpc/tanstack-query](https://www.npmjs.com/package/@orpc/tanstack-query): Integrate with [TanStack Query](https://tanstack.com/query/latest).
-- [@orpc/experimental-effect](https://www.npmjs.com/package/@orpc/experimental-effect): Integrate with [Effect](https://effect.website/).
-
 **Built-in features**
 
 - [@orpc/publisher](https://www.npmjs.com/package/@orpc/publisher): Pub/Sub.
 - [@orpc/ratelimit](https://www.npmjs.com/package/@orpc/ratelimit): Rate limiting.
 - [@orpc/json-schema](https://www.npmjs.com/package/@orpc/json-schema): Smart coercion for OpenAPI requests.
+
+**Framework & ecosystem integrations**
+
+- [@orpc/next](https://www.npmjs.com/package/@orpc/react): Use oRPC with [Next.js Server Functions](https://nextjs.org/docs/app/getting-started/mutating-data).
+- [@orpc/tanstack-query](https://www.npmjs.com/package/@orpc/tanstack-query): Integrate with [TanStack Query](https://tanstack.com/query/latest).
+- [@orpc/experimental-effect](https://www.npmjs.com/package/@orpc/experimental-effect): Integrate with [Effect](https://effect.website/).
+- [@orpc/nest](https://www.npmjs.com/package/@orpc/nest): Implement your contract with [NestJS](https://nestjs.com/).
 
 **Observability**
 

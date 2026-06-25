@@ -1,0 +1,3 @@
+[submodule "integrations/nest"]
+	path = integrations/nest
+	url = https://github.com/middleapi/orpc-nest
