@@ -105,7 +105,7 @@ describe('handlerGen', () => {
           return `output:${service1.id}`
         })),
       undefined,
-      { context: { '~effect/context': Context.empty().pipe(Context.add(Service1, { id: 'Service1' })) } },
+      { context: { 'effect/context': Context.empty().pipe(Context.add(Service1, { id: 'Service1' })) } },
     )).resolves.toEqual('output:Service1')
 
     await expect(call(
@@ -117,7 +117,7 @@ describe('handlerGen', () => {
           return `output:${service1.id}`
         })),
       undefined,
-      { context: { '~effect/context': Context.empty().pipe(Context.add(Service1, { id: 'Service1' })) } },
+      { context: { 'effect/context': Context.empty().pipe(Context.add(Service1, { id: 'Service1' })) } },
     )).rejects.toThrow('Service2')
   })
 
@@ -141,8 +141,8 @@ describe('handlerGen', () => {
       {
         path: ['wrapped', 'procedure'],
         context: {
-          '~effect/context': Context.empty(),
-          '~effect/wrap': (effect, opts) => effect.pipe(Effect.tap(() => Effect.sync(() => {
+          'effect/context': Context.empty(),
+          'effect/wrap': (effect, opts) => effect.pipe(Effect.tap(() => Effect.sync(() => {
             wrappedCalls += 1
             wrappedPath = opts.path
             wrappedProcedure = opts.procedure
@@ -173,8 +173,8 @@ describe('handlerGen', () => {
       undefined,
       {
         context: {
-          '~effect/context': Context.empty(),
-          '~effect/wrap': () => Effect.fail(error) as any,
+          'effect/context': Context.empty(),
+          'effect/wrap': () => Effect.fail(error) as any,
         },
       },
     )).rejects.toBe(error)

@@ -13,13 +13,13 @@ export interface WithEffectContext<Services> {
    * interface ServerContext extends WithEffectContext<Random | Logger> {}
    *
    * const context: ServerContext = {
-   *   '~effect/context': Context.empty().pipe(
+   *   'effect/context': Context.empty().pipe(
    *     Context.add(Random, { next: Effect.sync(() => Math.random()) }),
    *   ),
    * }
    * ```
    */
-  ['~effect/context']: EffectContext.Context<Services>
+  ['effect/context']: EffectContext.Context<Services>
 
   /**
    * An optional hook to wrap any effect before it is executed within this oRPC context.
@@ -37,12 +37,12 @@ export interface WithEffectContext<Services> {
    * )
    *
    * const context: ServerContext = {
-   *   '~effect/context': Context.empty(),
-   *   '~effect/wrap': (effect) => effect.pipe(Effect.provide(TracingLive)),
+   *   'effect/context': Context.empty(),
+   *   'effect/wrap': (effect) => effect.pipe(Effect.provide(TracingLive)),
    * }
    * ```
    */
-  ['~effect/wrap']?: <A, E>(
+  ['effect/wrap']?: <A, E>(
     effect: Effect.Effect<A, E>,
     opts: { path: string[], procedure: AnyProcedure, signal?: undefined | AbortSignal },
   ) => Effect.Effect<A, E>

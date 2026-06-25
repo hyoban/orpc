@@ -47,14 +47,14 @@ export function handlerGen<
       .gen(() => handler(opts, input))
       .pipe(succeedOnORPCError) as Effect.Effect<TReturn | Extract<InferYieldError<TYield>, AnyORPCError>, Exclude<InferYieldError<TYield>, AnyORPCError>>
 
-    if (EffectContext.isContext(opts.context['~effect/context'])) {
-      ef = ef.pipe(Effect.provide(opts.context['~effect/context']))
+    if (EffectContext.isContext(opts.context['effect/context'])) {
+      ef = ef.pipe(Effect.provide(opts.context['effect/context']))
     }
 
     // MUST wrap after `.pipe(succeedOnORPCError)`.
     // Otherwise, an ORPCError thrown by intercept would be incorrectly marked as an inferable error.
-    if (typeof opts.context['~effect/wrap'] === 'function') {
-      const intercept = opts.context['~effect/wrap'] as Exclude<WithEffectContext<any>['~effect/wrap'], undefined>
+    if (typeof opts.context['effect/wrap'] === 'function') {
+      const intercept = opts.context['effect/wrap'] as Exclude<WithEffectContext<any>['effect/wrap'], undefined>
       ef = intercept(ef, opts)
     }
 
