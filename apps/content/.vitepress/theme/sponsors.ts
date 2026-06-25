@@ -605,7 +605,7 @@ export const sponsors: JSONSponsor[] = [
   {
     name: '0x4e32',
     login: 'johngerome',
-    avatar: 'https://avatars.githubusercontent.com/u/2002000?u=24e8dd943cfc862aa284d858a023532c75071ade&v=4',
+    avatar: 'https://avatars.githubusercontent.com/u/2002000?u=505e54608466ab53754f702973687b04c6424c1f&v=4',
     amount: -1,
     link: 'https://github.com/johngerome?ref=orpc',
     org: false,
@@ -613,7 +613,7 @@ export const sponsors: JSONSponsor[] = [
     tierTitle: 'Past Sponsors',
     tierLevel: 0,
     sidebarSize: 'none',
-    sidebarLogo: 'https://avatars.githubusercontent.com/u/2002000?u=24e8dd943cfc862aa284d858a023532c75071ade&v=4',
+    sidebarLogo: 'https://avatars.githubusercontent.com/u/2002000?u=505e54608466ab53754f702973687b04c6424c1f&v=4',
   },
   {
     name: 'Ryuz',
