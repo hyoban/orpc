@@ -3,7 +3,7 @@ import { publishMessage, subscribeMessages } from './message'
 import { createPlanet, deletePlanet, findPlanet, listPlanets, updatePlanet } from './planet'
 
 export const router = {
-  files: {
+  file: {
     find: findFile,
     upload: uploadFile,
     delete: deleteFile,
