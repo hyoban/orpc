@@ -26,10 +26,10 @@ You can read the documentation [here](https://orpc.dev).
 
 **Core**
 
-- [@orpc/contract](https://www.npmjs.com/package/@orpc/contract): Define type-safe contracts for your API.
-- [@orpc/server](https://www.npmjs.com/package/@orpc/server): Implement your API or contract on the server.
-- [@orpc/client](https://www.npmjs.com/package/@orpc/client): Consume your API from the client with full type safety.
-- [@orpc/openapi](https://www.npmjs.com/package/@orpc/openapi): Bring OpenAPI compatibility to your APIs.
+- [@orpc/contract](https://www.npmjs.com/package/@orpc/contract): Define API contract as the single source of truth.
+- [@orpc/server](https://www.npmjs.com/package/@orpc/server): Build APIs or implement contracts.
+- [@orpc/client](https://www.npmjs.com/package/@orpc/client): Consume APIs with end-to-end type safety.
+- [@orpc/openapi](https://www.npmjs.com/package/@orpc/openapi): Add OpenAPI compatibility to APIs.
 
 **Schema validation**
 
@@ -39,22 +39,23 @@ You can read the documentation [here](https://orpc.dev).
 
 **Built-in features**
 
-- [@orpc/publisher](https://www.npmjs.com/package/@orpc/publisher): Pub/Sub.
-- [@orpc/ratelimit](https://www.npmjs.com/package/@orpc/ratelimit): Rate limiting.
+- [@orpc/publisher](https://www.npmjs.com/package/@orpc/publisher): Pub/Sub with memory, Redis, and Upstash adapters.
+- [@orpc/ratelimit](https://www.npmjs.com/package/@orpc/ratelimit): Rate limiting with memory, Redis, and Upstash adapters.
 - [@orpc/json-schema](https://www.npmjs.com/package/@orpc/json-schema): Smart coercion for OpenAPI requests.
 
 **Framework & ecosystem integrations**
 
-- [@orpc/next](https://www.npmjs.com/package/@orpc/react): Use oRPC with [Next.js Server Functions](https://nextjs.org/docs/app/getting-started/mutating-data).
+- [@orpc/next](https://www.npmjs.com/package/@orpc/next): Integrate with [Next.js Server Functions](https://nextjs.org/docs/app/getting-started/mutating-data).
 - [@orpc/tanstack-query](https://www.npmjs.com/package/@orpc/tanstack-query): Integrate with [TanStack Query](https://tanstack.com/query/latest).
 - [@orpc/experimental-effect](https://www.npmjs.com/package/@orpc/experimental-effect): Integrate with [Effect](https://effect.website/).
 - [@orpc/nest](https://www.npmjs.com/package/@orpc/nest): Implement your contract with [NestJS](https://nestjs.com/).
+- [@orpc/bun](https://www.npmjs.com/package/@orpc/bun): Adapters for [Bun's Redis](https://bun.sh/).
 
 **Observability**
 
-- [@orpc/opentelemetry](https://www.npmjs.com/package/@orpc/opentelemetry): Instrument your API with [OpenTelemetry](https://opentelemetry.io/).
-- [@orpc/pino](https://www.npmjs.com/package/@orpc/pino): Log with [Pino](https://getpino.io/).
-- [@orpc/evlog](https://www.npmjs.com/package/@orpc/evlog): Log with [Evlog](https://evlog.dev/).
+- [@orpc/opentelemetry](https://www.npmjs.com/package/@orpc/opentelemetry): Integrate with [OpenTelemetry](https://opentelemetry.io/) for distributed tracing.
+- [@orpc/pino](https://www.npmjs.com/package/@orpc/pino): Integrate with [Pino](https://getpino.io/) for logging.
+- [@orpc/evlog](https://www.npmjs.com/package/@orpc/evlog): Integrate with [Evlog](https://evlog.dev/) for logging.
 
 ## Sponsors
 

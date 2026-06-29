@@ -4,10 +4,10 @@
   <a href="https://codecov.io/gh/middleapi/orpc">
     <img alt="codecov" src="https://codecov.io/gh/middleapi/orpc/branch/main/graph/badge.svg">
   </a>
-  <a href="https://www.npmjs.com/package/@orpc/shared">
-    <img alt="weekly downloads" src="https://img.shields.io/npm/dw/%40orpc%2Fshared?logo=npm" />
+  <a href="https://www.npmjs.com/package/@orpc/bun">
+    <img alt="weekly downloads" src="https://img.shields.io/npm/dw/%40orpc%2Fbun?logo=npm" />
   </a>
-  <a href="https://github.com/middleapi/orpc/blob/main/LICENSE">
+  <a href="https://github.com/middleapi/orpc/blob/main/LICENCE">
     <img alt="MIT License" src="https://img.shields.io/github/license/middleapi/orpc?logo=open-source-initiative" />
   </a>
   <a href="https://discord.gg/TXEbwRBvQn">
@@ -188,4 +188,4 @@ oRPC is inspired by existing solutions that prioritize type safety and developer
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/middleapi/orpc/blob/main/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/middleapi/orpc/blob/main/LICENCE) for more information.

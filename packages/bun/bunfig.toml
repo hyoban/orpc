@@ -1,0 +1,10 @@
+[test]
+coverageReporter = [
+  "text",
+  "lcov"
+]
+coveragePathIgnorePatterns = [
+  "**/*.test-d.*",
+  "**/*.test.*",
+  "**/tests/**",
+]
