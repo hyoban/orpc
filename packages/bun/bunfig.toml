@@ -4,8 +4,7 @@ coverageReporter = [
   "lcov"
 ]
 coveragePathIgnorePatterns = [
-  # do not report untouched files to avoid overlap with other coverage reports
-  # merged coverage reports can be misleading
+  # Exclude other packages to prevent overlap in the final merged coverage report.
   "../**",
   "**/*.test.*",
   "**/tests/**",
