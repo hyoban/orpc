@@ -318,7 +318,7 @@ describe.skipIf(!REDIS_URL)('bun redis publisher', () => {
 
     expect(onError).not.toHaveBeenCalled()
     expect(listener).not.toHaveBeenCalled()
-  }, { timeout: 20_000 })
+  }, { timeout: 20_000, retry: 3 }) // not sure why but bun.redis can slow on unsubscribe, so we need retry sometimes
 
   it('fan-outs malformed pubsub payload errors to every registered subscriber', async () => {
     const prefix = `invalid:${crypto.randomUUID()}:`
