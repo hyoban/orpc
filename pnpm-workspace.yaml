@@ -3,12 +3,14 @@ packages:
   - 'packages/*'
   - 'playgrounds/*'
 
-# Disable hoisting: @types/node and @types/bun, when installed in different
-# packages, both get hoisted into the same env. This conflicts and breaks
-# type checking when working on node.js types alongside a package that imports from 'bun'.
-# Alternative: use https://pnpm.io/settings#hoistpattern to exclude only
-# @types/bun instead of disabling hoisting entirely.
-hoist: false
+# Hoist everything (default) except @types/bun. When @types/node and @types/bun are
+# installed in different packages, hoisting both into the same env causes a
+# conflict and breaks type checking when working on Node.js types alongside
+# a package that imports from 'bun'. Excluding @types/bun from hoisting
+# avoids this while keeping hoisting enabled for everything else.
+hoistPattern:
+  - '*'
+  - '!@types/bun'
 
 # Lets playgrounds/* resolve local packages without the 'workspace:' protocol
 # during development. When a playground is cloned standalone, the same
