@@ -11,9 +11,11 @@ import { createStandardPeerRequestHandler } from '../standard-peer'
  * Supports standard WebSocket instances, Bun ServerWebSocket, "ws" ServerWebSocket,
  * Cloudflare WebSocket Hibernation, and similar implementations.
  */
-export type WebsocketLike = Pick<WebSocket, 'send'>
+export type WebSocketLike = {
+  send: (data: string | Uint8Array<ArrayBuffer>) => unknown
+}
 
-export interface WebsocketHandlerOptions<_T extends Context> {
+export interface WebSocketHandlerOptions<_T extends Context> {
   /**
    * Options for encoding peer messages. such as `prefix` for distinguishing messages on the same channel..
    */
@@ -25,14 +27,14 @@ export interface WebsocketHandlerOptions<_T extends Context> {
   decodePeerMessage?: DecodePeerMessageOptions | undefined
 }
 
-export class WebsocketHandler<T extends Context> {
-  private readonly peers = new WeakMap<WebsocketLike, ServerPeer>()
-  private readonly encodePeerMessageOptions: WebsocketHandlerOptions<T>['encodePeerMessage']
-  private readonly decodePeerMessageOptions: WebsocketHandlerOptions<T>['decodePeerMessage']
+export class WebSocketHandler<T extends Context> {
+  private readonly peers = new WeakMap<WebSocketLike, ServerPeer>()
+  private readonly encodePeerMessageOptions: WebSocketHandlerOptions<T>['encodePeerMessage']
+  private readonly decodePeerMessageOptions: WebSocketHandlerOptions<T>['decodePeerMessage']
 
   constructor(
     private readonly handler: StandardHandler<T>,
-    options: NoInfer<WebsocketHandlerOptions<T>> = {},
+    options: NoInfer<WebSocketHandlerOptions<T>> = {},
   ) {
     this.encodePeerMessageOptions = options.encodePeerMessage
     this.decodePeerMessageOptions = options.decodePeerMessage
@@ -47,7 +49,7 @@ export class WebsocketHandler<T extends Context> {
    * @param data The message data received from the WebSocket, can be string, ArrayBuffer, Blob, ...
    */
   async message(
-    ws: WebsocketLike,
+    ws: WebSocketLike,
     data: string | ArrayBuffer | Blob | Exclude<ConstructorParameters<typeof Blob>[0], undefined>[0][] | Pick<Uint8Array<ArrayBuffer>, 'buffer' | 'byteOffset' | 'byteLength'>,
     ...rest: MaybeOptionalOptions<StandardPeerRequestHandlerOptions<T>>
   ): Promise<{ matched: boolean }> {
@@ -55,7 +57,8 @@ export class WebsocketHandler<T extends Context> {
 
     if (!peer) {
       this.peers.set(ws, peer = new ServerPeer(async (message) => {
-        return ws.send(await encodePeerMessage(message, this.encodePeerMessageOptions))
+        const encoded = await encodePeerMessage(message, this.encodePeerMessageOptions)
+        await ws.send(encoded)
       }))
     }
 
@@ -80,7 +83,7 @@ export class WebsocketHandler<T extends Context> {
    *
    * @param ws The WebSocket instance to clean up, must be the same instance used in `.message()` calls to properly clean up
    */
-  async close(ws: WebsocketLike): Promise<void> {
+  async close(ws: WebSocketLike): Promise<void> {
     const peer = this.peers.get(ws)
 
     if (peer) {
