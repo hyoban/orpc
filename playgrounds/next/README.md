@@ -18,7 +18,7 @@ npm run dev
 Collect OpenTelemetry traces with [Jaeger](https://www.jaegertracing.io/) by running this in a separate terminal:
 
 ```bash
-npm run jaeger:run
+npm run jaeger
 ```
 
 Then play with your app and open [http://localhost:16686](http://localhost:16686) to see the traces in the Jaeger dashboard.

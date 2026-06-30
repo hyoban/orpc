@@ -5,8 +5,7 @@
   "scripts": {
     "preview": "nest build && unbuild --stub && node dist/main.mjs",
     "type:check": "tsc --noEmit",
-    "jaeger:run": "docker run --rm --name jaeger -d -e COLLECTOR_OTLP_ENABLED=true -p 16686:16686 -p 4318:4318 jaegertracing/all-in-one:latest",
-    "jaeger:stop": "docker stop jaeger"
+    "jaeger": "docker run -p 16686:16686 -p 4318:4318 jaegertracing/all-in-one:latest"
   },
   "devDependencies": {
     "@nestjs/cli": "^11.0.23",
@@ -34,7 +33,7 @@
     "@orpc/server": "beta",
     "@orpc/tanstack-query": "beta",
     "@orpc/zod": "beta",
-    "@tanstack/react-query": "^5.101.1",
+    "@tanstack/react-query": "^5.101.2",
     "@types/express": "^5.0.6",
     "@types/node": "^26.0.1",
     "@types/supertest": "^7.2.0",

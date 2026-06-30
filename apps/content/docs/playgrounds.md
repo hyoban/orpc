@@ -7,8 +7,9 @@ featuring pre-configured examples accessible instantly via StackBlitz or local s
 
 | Environment        | StackBlitz                                                                                    | GitHub Source                                                               |
 | ------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| Next.js Playground | [Open in StackBlitz](https://stackblitz.com/github/middleapi/orpc/tree/main/playgrounds/next) | [View Source](https://github.com/middleapi/orpc/tree/main/playgrounds/next) |
+| Bun Playground     | [Open in StackBlitz](https://stackblitz.com/github/middleapi/orpc/tree/main/playgrounds/bun)  | [View Source](https://github.com/middleapi/orpc/tree/main/playgrounds/bun)  |
 | NestJS Playground  | [Open in StackBlitz](https://stackblitz.com/github/middleapi/orpc/tree/main/playgrounds/nest) | [View Source](https://github.com/middleapi/orpc/tree/main/playgrounds/nest) |
+| Next.js Playground | [Open in StackBlitz](https://stackblitz.com/github/middleapi/orpc/tree/main/playgrounds/next) | [View Source](https://github.com/middleapi/orpc/tree/main/playgrounds/next) |
 
 :::warning
 StackBlitz has its own limitations, so some features may not work as expected.
@@ -19,8 +20,9 @@ StackBlitz has its own limitations, so some features may not work as expected.
 Prefer working locally? Clone the playground with:
 
 ```bash
-npx giget gh:middleapi/orpc/playgrounds/next orpc-next-playground
+npx giget gh:middleapi/orpc/playgrounds/bun orpc-bun-playground
 npx giget gh:middleapi/orpc/playgrounds/nest orpc-nest-playground
+npx giget gh:middleapi/orpc/playgrounds/next orpc-next-playground
 ```
 
 Then install dependencies and start the dev server:
@@ -41,7 +43,7 @@ npm run dev
 Collect OpenTelemetry traces with [Jaeger](https://www.jaegertracing.io/) by running this in a separate terminal:
 
 ```bash
-npm run jaeger:run
+npm run jaeger
 ```
 
 Then play with your app and open `http://localhost:16686` to see the traces in the Jaeger dashboard.

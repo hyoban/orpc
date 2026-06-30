@@ -1,19 +1,21 @@
 {
-  "name": "@orpc/next-playground",
-  "version": "2.0.0-beta.9",
+  "name": "@orpc/bun-playground",
+  "type": "module",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000",
-    "build": "next build",
-    "start": "next start --port 3000",
+    "dev": "bun --hot src/index.ts",
+    "build": "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
+    "start": "NODE_ENV=production bun src/index.ts",
     "type:check": "tsc --noEmit",
     "jaeger": "docker run -p 16686:16686 -p 4318:4318 jaegertracing/all-in-one:latest"
   },
   "devDependencies": {
-    "@opentelemetry/api-logs": "^0.219.0",
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/auto-instrumentations-node": "^0.77.0",
     "@opentelemetry/exporter-trace-otlp-http": "^0.219.0",
-    "@opentelemetry/instrumentation": "^0.219.0",
-    "@opentelemetry/sdk-logs": "^0.219.0",
+    "@opentelemetry/resources": "^2.8.0",
+    "@opentelemetry/sdk-node": "^0.219.0",
     "@opentelemetry/sdk-trace-node": "^2.8.0",
     "@orpc/client": "beta",
     "@orpc/evlog": "beta",
@@ -26,16 +28,12 @@
     "@orpc/tanstack-query": "beta",
     "@orpc/zod": "beta",
     "@tanstack/react-query": "^5.101.2",
-    "@types/node": "^26.0.1",
+    "@types/bun": "latest",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19",
-    "@vercel/otel": "^2.1.3",
-    "next": "16.2.9",
+    "evlog": "^2.19.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "server-only": "^0.0.1",
-    "ts-pattern": "^5.9.0",
-    "typescript": "^6.0.3",
-    "zod": "^4.4.3"
+    "ts-pattern": "^5.9.0"
   }
 }
